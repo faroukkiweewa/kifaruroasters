@@ -5,50 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kifaru Roasters</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; margin: 0; scroll-behavior: smooth; }
         .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
             height: 100vh;
         }
-        .ticker { background: #000; font-size: 11px; letter-spacing: 1px; border-bottom: 1px solid #333; }
-        .nav-link { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
-        .brand-logo { font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 700; font-style: italic; line-height: 1; }
-        .play-btn { border: 2px solid #fff; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+        .ticker { background: #000; font-size: 11px; letter-spacing: 1px; border-bottom: 1px solid #222; }
+        .brand-logo { font-family: 'Montserrat', sans-serif; font-size: clamp(60px, 10vw, 120px); font-weight: 700; font-style: italic; line-height: 1; }
+        .sdg-tag { border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; }
+        .section-divider { width: 1px; height: 100px; background: linear-gradient(to bottom, #fff, transparent); margin: 0 auto; opacity: 0.3; }
     </style>
 </head>
 <body>
 
-    <div class="ticker py-2 px-4 flex justify-between items-center opacity-80 overflow-hidden whitespace-nowrap">
+    <div class="ticker py-2 px-4 flex justify-between items-center opacity-80 overflow-hidden whitespace-nowrap sticky top-0 z-50">
         <div class="flex gap-6">
             <span>NOW LISTENING: JOSHUA SLONE</span>
             <span>CHARLIE NOORDEWIER</span>
             <span>DOVE ELLIS</span>
-            <span>TIMMY SKELLY</span>
         </div>
         <div class="flex gap-6">
             <span>FREE SHIPPING OVER €50</span>
             <span class="text-red-500">▼ GEOMETRY</span>
-            <span class="text-red-500">▼ SOUTHERN WEATHER</span>
             <span class="text-green-500">▲ TROPICAL WEATHER</span>
         </div>
     </div>
 
-    <div class="hero-bg relative flex flex-col">
+    <section class="hero-bg relative flex flex-col">
         <nav class="flex justify-between items-center p-8 z-10">
-            <div class="w-12 h-12">
-                <svg viewBox="0 0 100 100" fill="white"><path d="M50 5C25.1 5 5 25.1 5 50s20.1 45 45 45 45-20.1 45-45S74.9 5 50 5zm0 80c-19.3 0-35-15.7-35-35s15.7-35 35-35 35 15.7 35 35-15.7 35-35 35z"/><path d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm0 40c-8.3 0-15-6.7-15-15s6.7-15 15-15 15 6.7 15 15-6.7 15-15 15z"/></svg>
-            </div>
+            <div class="w-12 h-12 flex items-center justify-center font-bold border-2 border-white rounded-full text-xs">KR</div>
             <div class="flex items-center gap-8">
-                <div class="relative border-b border-white border-opacity-30 pb-1">
-                    <span class="absolute left-0 top-0">🔍</span>
-                    <input type="text" placeholder="Search..." class="bg-transparent border-none outline-none pl-6 text-sm w-40 placeholder-gray-400">
-                </div>
-                <a href="#" class="nav-link">LOGIN</a>
+                <a href="#" class="text-[10px] tracking-widest uppercase opacity-70">LOGIN</a>
                 <div class="space-y-1.5 cursor-pointer">
                     <div class="w-8 h-0.5 bg-white"></div>
                     <div class="w-8 h-0.5 bg-white"></div>
@@ -57,27 +49,65 @@
         </nav>
 
         <div class="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h1 class="brand-logo mb-4 tracking-tighter">Kifaru</h1>
-            <div class="play-btn mb-6 cursor-pointer hover:scale-110 transition-transform">
-                <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-white border-b-[8px] border-b-transparent ml-1"></div>
+            <h1 class="brand-logo mb-6 tracking-tighter">Kifaru</h1>
+            <div class="border-2 border-white rounded-full w-14 h-14 flex items-center justify-center mb-8 cursor-pointer hover:bg-white hover:text-black transition-all">
+                <div class="ml-1 w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-current border-b-[8px] border-b-transparent"></div>
             </div>
-            <p class="max-w-md text-sm leading-relaxed mb-8 font-light tracking-wide">
-                Circadian is our fully tailored coffee experience designed to help optimize your caffeine intake without sacrificing sleep.
+            <p class="max-w-md text-sm leading-relaxed mb-8 font-light tracking-wide opacity-90">
+                A legacy of strength and resilience, born from the heart of Africa.
             </p>
-            <a href="#" class="text-[10px] tracking-[0.3em] uppercase border-b border-white border-opacity-50 pb-1 hover:border-opacity-100 transition-all">
-                Explore Offerings →
+            <a href="#story" class="text-[10px] tracking-[0.3em] uppercase border-b border-white border-opacity-50 pb-1 hover:border-opacity-100 transition-all">
+                Our Story →
             </a>
         </div>
 
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-            <p class="text-[10px] tracking-[0.4em] uppercase mb-2">Scroll</p>
-            <span class="text-lg">∨</span>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center opacity-60">
+            <p class="text-[9px] tracking-[0.4em] uppercase mb-2">Scroll</p>
+            <span class="animate-bounce inline-block">↓</span>
         </div>
-    </div>
+    </section>
 
-    <div class="fixed bottom-6 right-6 bg-white text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl cursor-pointer">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        <span class="font-semibold text-sm">Chat with us</span>
+    <section id="story" class="py-32 px-6 bg-black">
+        <div class="max-w-3xl mx-auto">
+            <div class="section-divider mb-12"></div>
+            
+            <h2 class="text-[10px] tracking-[0.5em] uppercase text-center mb-16 opacity-50">Brand Story</h2>
+            
+            <div class="space-y-12 text-center">
+                <p class="text-2xl font-light leading-relaxed">
+                    Kifaru Roasters was founded by <span class="font-semibold">Kiweewa Farouk</span>, inspired by the strength, resilience, and unwavering dedication of his mother, <span class="italic">Nakayima Harriet</span>.
+                </p>
+                
+                <p class="text-gray-400 leading-loose tracking-wide">
+                    From her tireless work and nurturing spirit came the values that guide us today — hard work, authenticity, dignity, and pride in our roots. Just as the rhino (Kifaru) stands as a symbol of power and protection, Nakayima’s legacy is the backbone of our journey.
+                </p>
+
+                <div class="py-12 italic text-3xl font-serif opacity-90">
+                    "We don’t just make coffee. We craft heritage."
+                </div>
+
+                <p class="text-gray-400 leading-loose tracking-wide">
+                    Born in Africa, Kifaru Roasters embodies the rich soil, bold spirit, and warm heart of our continent. Every bean tells a story of family, resilience, and the relentless pursuit of excellence by the people who cultivate it.
+                </p>
+            </div>
+
+            <div class="mt-32">
+                <h3 class="text-[10px] tracking-[0.4em] uppercase text-center mb-10 opacity-50">Sustainable Development Goals</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="sdg-tag">SDG 1 – No Poverty</span>
+                    <span class="sdg-tag">SDG 5 – Gender Equality</span>
+                    <span class="sdg-tag">SDG 8 – Decent Work</span>
+                    <span class="sdg-tag">SDG 12 – Responsible Consumption</span>
+                    <span class="sdg-tag">SDG 15 – Land & Biodiversity</span>
+                    <span class="sdg-tag">SDG 17 – Partnerships</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed bottom-6 right-6 bg-white text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl cursor-pointer z-50">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        <span class="font-bold text-[11px] uppercase tracking-wider">Chat</span>
     </div>
 
 </body>
