@@ -1,114 +1,585 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kifaru Roasters</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; margin: 0; scroll-behavior: smooth; }
-        .hero-bg {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-        .ticker { background: #000; font-size: 11px; letter-spacing: 1px; border-bottom: 1px solid #222; }
-        .brand-logo { font-family: 'Montserrat', sans-serif; font-size: clamp(60px, 10vw, 120px); font-weight: 700; font-style: italic; line-height: 1; }
-        .sdg-tag { border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; }
-        .section-divider { width: 1px; height: 100px; background: linear-gradient(to bottom, #fff, transparent); margin: 0 auto; opacity: 0.3; }
-    </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Kifaru Roasters - Empowering Ugandan Coffee Farmers</title>
+  <meta name="description" content="Born in Africa and rooted in community, Kifaru Roasters exists to uplift Ugandan coffee farmers through sustainable farming, ethical trade, and world-class coffee.">
+  <link rel="canonical" href="https://kifaruroasters.org/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kifaruroasters.org/">
+  <meta property="og:site_name" content="Kifaru Roasters">
+  <meta property="og:title" content="Kifaru Roasters - Empowering Ugandan Coffee Farmers">
+  <meta property="og:description" content="Born in Africa and rooted in community, Kifaru Roasters exists to uplift Ugandan coffee farmers through sustainable farming, ethical trade, and world-class coffee.">
+  <meta property="og:image" content="https://kifaruroasters.org/assets/img/coffee/hero-showcase.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kifaru Roasters - Empowering Ugandan Coffee Farmers">
+  <meta name="twitter:description" content="Born in Africa and rooted in community, Kifaru Roasters exists to uplift Ugandan coffee farmers through sustainable farming, ethical trade, and world-class coffee.">
+  <meta name="twitter:image" content="https://kifaruroasters.org/assets/img/coffee/hero-showcase.jpg">
+  <meta name="keywords" content="Ugandan coffee, coffee farmers, ethical trade, coffee roasting, sustainable farming, Kifaru Roasters">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
-<body>
 
-    <!-- <div class="ticker py-2 px-4 flex justify-between items-center opacity-80 overflow-hidden whitespace-nowrap sticky top-0 z-50">
-        <div class="flex gap-6">
-            <span>NOW LISTENING: JOSHUA SLONE</span>
-            <span>CHARLIE NOORDEWIER</span>
-            <span>DOVE ELLIS</span>
-        </div>
-        <div class="flex gap-6">
-            <span>FREE SHIPPING OVER €50</span>
-            <span class="text-red-500">▼ GEOMETRY</span>
-            <span class="text-green-500">▲ TROPICAL WEATHER</span>
-        </div>
-    </div> -->
+<body class="index-page">
 
-    <section class="hero-bg relative flex flex-col">
-        <nav class="flex justify-between items-center p-8 z-10">
-            <div class="w-12 h-12 flex items-center justify-center font-bold border-2 border-white rounded-full text-xs">KR</div>
-            <div class="flex items-center gap-8">
-                <a href="#" class="text-[10px] tracking-widest uppercase opacity-70">LOGIN</a>
-                <div class="space-y-1.5 cursor-pointer">
-                    <div class="w-8 h-0.5 bg-white"></div>
-                    <div class="w-8 h-0.5 bg-white"></div>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="Kifaru Roasters" width="40" height="40">
+        <h1 class="sitename">Kifaru Roasters</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">What We Do</a></li>
+          <li><a href="coffee-education.html">Coffee Education</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted d-none d-sm-block" href="#">Donate</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="hero-video-container">
+        <video id="hero-video" muted loop playsinline preload="none" poster="assets/img/coffee/hero-poster.jpg">
+          <source src="assets/img/coffee/hero-bg.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-10">
+            <div class="hero-content">
+              <h1 data-aos="fade-up" data-aos-delay="200">Empowering Ugandan Coffee Farmers, From Seed to Cup</h1>
+              <p data-aos="fade-up" data-aos-delay="300">Born in Africa and rooted in community, Kifaru Roasters exists to uplift Ugandan coffee farmers through sustainable farming, ethical trade, and world-class coffee — honoring heritage while building a future of dignity, resilience, and prosperity.</p>
+
+              <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
+                <a href="#donate" class="btn btn-primary">Support a Farmer</a>
+                <a href="#products" class="btn btn-secondary">Buy Coffee</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="content">
+              <h2 class="section-heading mb-4">Built on Strength, Driven by Purpose</h2>
+              <p class="lead-text mb-4">Kifaru Roasters is a purpose-driven coffee company founded by Kiweewa Farouk, inspired by the strength and dedication of his mother, Nakayima Harriet, and the communities that shaped him. We support farmers with quality seeds, training, market access, and fair pricing — while roasting exceptional coffee that carries the story of Africa to the world.</p>
+
+              <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                  <div class="stat-number">500+</div>
+                  <div class="stat-label">Farmers Supported</div>
                 </div>
-            </div>
-        </nav>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="350">
+                  <div class="stat-number">10,000+</div>
+                  <div class="stat-label">Coffee Seeds Distributed</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Fair Trade Commitment</div>
+                </div>
+              </div>
 
-        <div class="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h1 class="brand-logo mb-6 tracking-tighter">Kifaru Roasters</h1>
-            <div class="border-2 border-white rounded-full w-14 h-14 flex items-center justify-center mb-8 cursor-pointer hover:bg-white hover:text-black transition-all">
-                <div class="ml-1 w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-current border-b-[8px] border-b-transparent"></div>
+              <div class="cta-section" data-aos="fade-up" data-aos-delay="450">
+                <a href="about.html" class="cta-link">
+                  Read Our Story
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
             </div>
-            <p class="max-w-md text-sm leading-relaxed mb-8 font-light tracking-wide opacity-90">
-                A legacy of strength and resilience, born from the heart of Africa.
-            </p>
-            <a href="#story" class="text-[10px] tracking-[0.3em] uppercase border-b border-white border-opacity-50 pb-1 hover:border-opacity-100 transition-all">
-                Our Story →
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-section">
+              <div class="main-image">
+                <img src="assets/img/sections/about.jpg" alt="Coffee farmers in Uganda" class="img-fluid" width="1133" height="720" loading="lazy">
+              </div>
+              <div class="floating-badge" data-aos="zoom-in" data-aos-delay="500">
+                <div class="badge-content">
+                  <i class="bi bi-award"></i>
+                  <div class="badge-text">
+                    <span class="badge-title">Empowering Communities</span>
+                    <span class="badge-subtitle">Since 2014</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Core Pillars Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Core Pillars</h2>
+        <p>Four foundational ways we support farmers and deliver exceptional coffee to the world</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="services-grid">
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="150">
+            <div class="service-number">01</div>
+            <div class="service-icon">
+              <i class="bi bi-sunrise"></i>
+            </div>
+            <h3>Coffee Growing & Seed Support</h3>
+            <p>We provide high-quality coffee seeds and farming guidance to help farmers improve yields, quality, and long-term sustainability.</p>
+            <a href="farmers.html" class="service-cta">
+              <span>Learn More</span>
+              <i class="bi bi-arrow-right"></i>
             </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-number">02</div>
+            <div class="service-icon">
+              <i class="bi bi-cup-hot"></i>
+            </div>
+            <h3>Coffee Roasting</h3>
+            <p>We roast Ugandan coffee with precision and care, honoring each bean's origin while meeting international quality standards.</p>
+            <a href="services.html#roasting" class="service-cta">
+              <span>Explore Our Process</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="250">
+            <div class="featured-badge">Impact</div>
+            <div class="service-number">03</div>
+            <div class="service-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h3>Market Access for Farmers</h3>
+            <p>We connect farmers directly to buyers and roasters, ensuring fair pricing and transparent trade relationships.</p>
+            <a href="services.html#market" class="service-cta">
+              <span>See How</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-number">04</div>
+            <div class="service-icon">
+              <i class="bi bi-heart"></i>
+            </div>
+            <h3>Fundraising & Empowerment</h3>
+            <p>We mobilize resources to fund training, equipment, infrastructure, and long-term community development.</p>
+            <a href="#donate" class="service-cta">
+              <span>Support Us</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
         </div>
 
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center opacity-60">
-            <p class="text-[9px] tracking-[0.4em] uppercase mb-2">Scroll</p>
-            <span class="animate-bounce inline-block">↓</span>
+      </div>
+
+    </section><!-- /Core Pillars Section -->
+
+    <!-- Coffee Types Section -->
+    <section id="coffee-types" class="services-alt section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-visual">
+                <img src="assets/img/coffee/arabica-cherries.jpg" alt="Arabica Coffee" class="img-fluid" width="1200" height="761" loading="lazy">
+              </div>
+              <div class="service-content">
+                <h3>Arabica Coffee</h3>
+                <p><strong>Grown in:</strong> Mt. Elgon, Rwenzori Mountains, Bugisu<br>
+                <strong>Altitude:</strong> 1,300-2,300 meters<br>
+                <strong>Flavor profile:</strong> Bright acidity, floral notes, citrus, chocolate, wine-like sweetness</p>
+                <a href="coffee-education.html#arabica" class="service-link">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Coffee Type Item 1 -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="service-item">
+              <div class="service-visual">
+                <img src="assets/img/coffee/robusta-cherries.jpg" alt="Robusta Coffee" class="img-fluid" width="1200" height="761" loading="lazy">
+              </div>
+              <div class="service-content">
+                <h3>Robusta Coffee</h3>
+                <p><strong>Grown in:</strong> Central & Western Uganda<br>
+                <strong>Altitude:</strong> 900–1,200 meters<br>
+                <strong>Flavor profile:</strong> Bold, earthy, chocolatey, nutty, full-bodied. Uganda is one of the world's top Robusta producers.</p>
+                <a href="coffee-education.html#robusta" class="service-link">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Coffee Type Item 2 -->
+
         </div>
-    </section>
 
-    <section id="story" class="py-32 px-6 bg-black">
-        <div class="max-w-3xl mx-auto">
-            <div class="section-divider mb-12"></div>
-            
-            <h2 class="text-[10px] tracking-[0.5em] uppercase text-center mb-16 opacity-50">Brand Story</h2>
-            
-            <div class="space-y-12 text-center">
-                <p class="text-2xl font-light leading-relaxed">
-                    Kifaru Roasters was founded by <span class="font-semibold">Kiweewa Farouk</span>, inspired by the strength, resilience, and unwavering dedication of his mother, <span class="italic">Nakayima Harriet</span>.
-                </p>
-                
-                <p class="text-gray-400 leading-loose tracking-wide">
-                    From her tireless work and nurturing spirit came the values that guide us today — hard work, authenticity, dignity, and pride in our roots. Just as the rhino (Kifaru) stands as a symbol of power and protection, Nakayima’s legacy is the backbone of our journey.
-                </p>
+        <div class="row mt-5" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-12 text-center">
+            <div class="cta-section">
+              <h4>Discover the Rich Heritage of Ugandan Coffee</h4>
+              <p>Learn about growing conditions, processing methods, and what makes Ugandan coffee exceptional.</p>
+              <a href="coffee-education.html" class="btn-primary">
+                <span>Coffee Education</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
-                <div class="py-12 italic text-3xl font-serif opacity-90">
-                    "We don’t just make coffee. We craft heritage."
+      </div>
+
+    </section><!-- /Coffee Types Section -->
+
+    <!-- Impact Stories Section -->
+    <section id="impact" class="testimonials section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Farmer Stories</h2>
+        <p>Real farmers. Real change. Real lives transformed.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="testimonial-masonry">
+
+          <div class="testimonial-item" data-aos="fade-up">
+            <div class="testimonial-content">
+              <div class="quote-pattern">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p>Before Kifaru, I struggled to get fair prices for my coffee. Now I have direct market access and my income has doubled. I can send all my children to school.</p>
+              <div class="client-info">
+                <div class="client-image">
+                  <img src="assets/img/person/person.png" alt="Farmer" width="1024" height="1024" loading="lazy">
+                </div>
+                <div class="client-details">
+                  <h3>Agnes Namusisi</h3>
+                  <span class="position">Coffee Farmer, Mt. Elgon</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-item highlight" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-content">
+              <div class="quote-pattern">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p>The training on sustainable farming practices and the quality seeds from Kifaru transformed my farm. My yields increased by 40% and the coffee quality is now premium grade.</p>
+              <div class="client-info">
+                <div class="client-image">
+                  <img src="assets/img/person/person.png" alt="Farmer" width="1024" height="1024" loading="lazy">
+                </div>
+                <div class="client-details">
+                  <h3>David Mugisha</h3>
+                  <span class="position">Coffee Cooperative Leader</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-content">
+              <div class="quote-pattern">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p>Kifaru doesn't just buy our coffee—they invest in our future. The equipment support and market linkages have changed everything for our community.</p>
+              <div class="client-info">
+                <div class="client-image">
+                  <img src="assets/img/person/person.png" alt="Farmer" width="1024" height="1024" loading="lazy">
+                </div>
+                <div class="client-details">
+                  <h3>Sarah Nalongo</h3>
+                  <span class="position">Smallholder Farmer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Impact Stories Section -->
+
+    <!-- Call To Action Section -->
+    <section id="donate" class="call-to-action section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center">
+
+          <div class="col-lg-10">
+            <div class="cta-header text-center" data-aos="fade-up" data-aos-delay="200">
+              <h2>Join Us in Empowering Coffee Farmers</h2>
+              <p>Your support helps us provide seeds, training, equipment, and market access to Ugandan coffee farmers. Together, we're building sustainable livelihoods and producing world-class coffee that honors heritage while creating prosperity.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cta-main" data-aos="fade-up" data-aos-delay="300">
+          <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+              <div class="achievements-grid">
+                <div class="achievement-item" data-aos="zoom-in" data-aos-delay="400">
+                  <div class="achievement-icon">
+                    <i class="bi bi-people"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h3>500+</h3>
+                    <span>Farmers Supported</span>
+                  </div>
                 </div>
 
-                <p class="text-gray-400 leading-loose tracking-wide">
-                    Born in Africa, Kifaru Roasters embodies the rich soil, bold spirit, and warm heart of our continent. Every bean tells a story of family, resilience, and the relentless pursuit of excellence by the people who cultivate it.
-                </p>
-            </div>
-
-            <div class="mt-32">
-                <h3 class="text-[10px] tracking-[0.4em] uppercase text-center mb-10 opacity-50">Sustainable Development Goals</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <span class="sdg-tag">SDG 1 – No Poverty</span>
-                    <span class="sdg-tag">SDG 5 – Gender Equality</span>
-                    <span class="sdg-tag">SDG 8 – Decent Work</span>
-                    <span class="sdg-tag">SDG 12 – Responsible Consumption</span>
-                    <span class="sdg-tag">SDG 15 – Land & Biodiversity</span>
-                    <span class="sdg-tag">SDG 17 – Partnerships</span>
+                <div class="achievement-item" data-aos="zoom-in" data-aos-delay="450">
+                  <div class="achievement-icon">
+                    <i class="bi bi-piggy-bank"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h3>$50K+</h3>
+                    <span>Direct Support Provided</span>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <div class="fixed bottom-6 right-6 bg-white text-black px-6 py-3 rounded-full flex items-center gap-3 shadow-2xl cursor-pointer z-50">
-        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        <span class="font-bold text-[11px] uppercase tracking-wider">Chat</span>
+                <div class="achievement-item" data-aos="zoom-in" data-aos-delay="500">
+                  <div class="achievement-icon">
+                    <i class="bi bi-flower1"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h3>10,000+</h3>
+                    <span>Seeds Distributed</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-aos="zoom-in" data-aos-delay="550">
+                  <div class="achievement-icon">
+                    <i class="bi bi-graph-up"></i>
+                  </div>
+                  <div class="achievement-info">
+                    <h3>40%</h3>
+                    <span>Average Income Increase</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="action-panel" data-aos="fade-left" data-aos-delay="350">
+
+                <div class="panel-content">
+                  <h3>Ready to Make an Impact?</h3>
+                  <p>Your contribution supports seed distribution, farmer training, roasting equipment, water access, and processing infrastructure. Every dollar directly empowers farming communities.</p>
+
+                  <div class="action-buttons">
+                    <a href="donate.html" class="btn-primary">
+                      <span>Donate Now</span>
+                      <i class="bi bi-arrow-right"></i>
+                    </a>
+                    <a href="impact.html" class="btn-secondary">
+                      <span>See Our Impact</span>
+                      <i class="bi bi-eye"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="contact-quick">
+                  <div class="contact-row">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div class="contact-details">
+                      <span class="contact-label">Email Us</span>
+                      <span class="contact-value">info@kifaruroasters.org</span>
+                    </div>
+                  </div>
+
+                  <div class="contact-row">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <div class="contact-details">
+                      <span class="contact-label">Location</span>
+                      <span class="contact-value">Kampala, Uganda</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <a href="index.html" class="logo d-flex align-items-center mb-3">
+              <img src="assets/img/logo.png" alt="Kifaru Roasters" width="32" height="32">
+              <span class="sitename">Kifaru Roasters</span>
+            </a>
+            <p class="tagline">Empowering Ugandan coffee farmers through sustainable practices, ethical trade, and exceptional coffee—from seed to cup.</p>
+
+            <div class="social-links mt-4">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="footer-links-grid">
+            <div class="row">
+              <div class="col-6 col-md-4">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                  <li><a href="about.html">Our Story</a></li>
+                  <li><a href="services.html">What We Do</a></li>
+                  <li><a href="impact.html">Impact Stories</a></li>
+                  <li><a href="transparency.html">Transparency</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Coffee</h5>
+                <ul class="list-unstyled">
+                  <li><a href="coffee-education.html">Coffee Education</a></li>
+                  <li><a href="products.html">Buy Coffee</a></li>
+                  <li><a href="farmers.html">For Farmers</a></li>
+                  <li><a href="buyers.html">For Buyers</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Get Involved</h5>
+                <ul class="list-unstyled">
+                  <li><a href="donate.html">Donate</a></li>
+                  <li><a href="partner.html">Partner With Us</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="blog.html">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="footer-cta">
+            <h5>Support Us</h5>
+            <a href="donate.html" class="btn btn-outline">Donate Today</a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-bottom-content">
+              <p class="mb-0">© <span class="sitename">Kifaru Roasters</span>. All rights reserved.</p>
+              <div class="credits">
+                Empowering communities through coffee
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
