@@ -1,159 +1,108 @@
-/**
-* Template Name: iConstruction
-* Template URL: https://bootstrapmade.com/iconstruction-bootstrap-construction-template/
-* Updated: Jul 27 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-(function() {
+/*
+ * Kifaru Roasters — site behaviour
+ * Depends on Bootstrap 5.3 bundle and AOS (both loaded before this file).
+ */
+(function () {
   "use strict";
 
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
-  function toggleScrolled() {
-    const selectBody = document.querySelector('body');
-    const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  var CONTACT_EMAIL = "info@kifaruroasters.org";
+  var WHATSAPP_NUMBER = "256782639188";
+
+  /* Navbar: solid background after scrolling or when the mobile menu is open */
+  var navbar = document.querySelector(".navbar-kf");
+  function updateNavbar() {
+    if (!navbar) return;
+    navbar.classList.toggle("is-scrolled", window.scrollY > 40);
   }
+  document.addEventListener("scroll", updateNavbar, { passive: true });
+  updateNavbar();
 
-  document.addEventListener('scroll', toggleScrolled);
-  window.addEventListener('load', toggleScrolled);
-
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
-      }
+  var navCollapse = document.getElementById("mainNav");
+  if (navbar && navCollapse) {
+    navCollapse.addEventListener("show.bs.collapse", function () { navbar.classList.add("is-open"); });
+    navCollapse.addEventListener("hidden.bs.collapse", function () { navbar.classList.remove("is-open"); });
+    navCollapse.querySelectorAll("a[href*='#']").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var instance = bootstrap.Collapse.getInstance(navCollapse);
+        if (instance) instance.hide();
+      });
     });
+  }
 
-  });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
+  /* Back to top button */
+  var backToTop = document.querySelector(".back-to-top");
+  if (backToTop) {
+    document.addEventListener("scroll", function () {
+      backToTop.classList.toggle("is-visible", window.scrollY > 400);
+    }, { passive: true });
+    backToTop.addEventListener("click", function (e) {
       e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
+  }
+
+  /* Current year in footer */
+  document.querySelectorAll("[data-year]").forEach(function (el) {
+    el.textContent = new Date().getFullYear();
   });
 
-  /**
-   * Preloader
+  /* Scroll animations */
+  if (window.AOS) {
+    AOS.init({ duration: 650, easing: "ease-out", once: true, offset: 60 });
+  }
+
+  /*
+   * Contact form.
+   * The site is static (no server), so the form opens the visitor's email app
+   * or WhatsApp with the message pre-filled instead of posting to a backend.
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+
+  var topicSelect = form.querySelector("#topic");
+  var params = new URLSearchParams(window.location.search);
+  if (topicSelect && params.get("topic")) {
+    var wanted = params.get("topic");
+    Array.prototype.forEach.call(topicSelect.options, function (opt) {
+      if (opt.value === wanted) topicSelect.value = wanted;
     });
   }
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
-
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
+  function composeMessage() {
+    var data = new FormData(form);
+    var topicLabel = topicSelect.options[topicSelect.selectedIndex].text;
+    var subject = "[" + topicLabel + "] " + (data.get("subject") || "Website enquiry");
+    var body =
+      data.get("message") + "\n\n" +
+      "— " + data.get("name") + "\n" +
+      data.get("email") +
+      (data.get("phone") ? "\n" + data.get("phone") : "");
+    return { subject: subject, body: body };
   }
-  scrollTop.addEventListener('click', (e) => {
+
+  function validate() {
+    form.classList.add("was-validated");
+    return form.checkValidity();
+  }
+
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    if (!validate()) return;
+    var msg = composeMessage();
+    window.location.href = "mailto:" + CONTACT_EMAIL +
+      "?subject=" + encodeURIComponent(msg.subject) +
+      "&body=" + encodeURIComponent(msg.body);
+    var note = document.getElementById("formNote");
+    if (note) note.classList.remove("d-none");
   });
 
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
-  function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
+  var whatsappBtn = document.getElementById("sendWhatsApp");
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", function () {
+      if (!validate()) return;
+      var msg = composeMessage();
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" +
+        encodeURIComponent(msg.subject + "\n\n" + msg.body), "_blank", "noopener");
     });
   }
-  window.addEventListener('load', aosInit);
-
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
-  }
-
-  window.addEventListener("load", initSwiper);
-
-  /**
-   * Play the hero background video only on larger screens / fast connections.
-   * Mobile visitors and data-saver users get the static poster frame instead,
-   * avoiding an ~11MB video download.
-   */
-  function heroVideoInit() {
-    const video = document.getElementById('hero-video');
-    if (!video) return;
-
-    const isSmallScreen = window.matchMedia('(max-width: 767px)').matches;
-    const saveData = navigator.connection && navigator.connection.saveData;
-
-    if (isSmallScreen || saveData) return;
-
-    video.setAttribute('preload', 'auto');
-    video.play().catch(function() {
-      /* Autoplay blocked; poster frame remains visible. */
-    });
-  }
-  window.addEventListener('load', heroVideoInit);
-
 })();
